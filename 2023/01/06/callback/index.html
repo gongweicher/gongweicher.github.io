@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="回调函数WhatWhyHow回调普通函数1234567891011121314#include &lt;iostream&gt;void func_a() &amp;#123;    std:cout &lt;&lt; &quot;func_a is called\n&quot;;&amp;#125;void func_b(void (*callback)()) &amp;#123;    std::cout &lt;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/01/06/callback/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="回调函数WhatWhyHow回调普通函数1234567891011121314#include &lt;iostream&gt;void func_a() &amp;#123;    std:cout &lt;&lt; &quot;func_a is called\n&quot;;&amp;#125;void func_b(void (*callback)()) &amp;#123;    std::cout &lt;&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-06T14:13:20.425Z">
+<meta property="article:modified_time" content="2023-01-06T14:14:31.122Z">
+<meta property="article:author" content="gongweichao">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2023/01/06/callback/"/>
+
+
+
+
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">test</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/06/callback/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-01-06T22:13:20+08:00">
+                2023-01-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h1><h2 id="What"><a href="#What" class="headerlink" title="What"></a>What</h2><h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><h3 id="回调普通函数"><a href="#回调普通函数" class="headerlink" title="回调普通函数"></a>回调普通函数</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func_a</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std:cout &lt;&lt; <span class="string">&quot;func_a is called\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func_b</span><span class="params">(<span class="type">void</span> (*callback)())</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;func_b is called\n&quot;</span>;</span><br><span class="line">    <span class="built_in">callback</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">func_b</span>(func_a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="回调类静态函数"><a href="#回调类静态函数" class="headerlink" title="回调类静态函数"></a>回调类静态函数</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ClassA</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">static</span> <span class="type">void</span> <span class="title">func_c</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;static func_c is called\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(<span class="type">void</span> (*callback)())</span> </span>&#123;</span><br><span class="line">    std::cout&lt;&lt;<span class="string">&quot;func is called\n&quot;</span>;</span><br><span class="line">    <span class="built_in">callback</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">func</span>(ClassA::func_c);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>回调类静态函数和普通函数没有区别，且static函数不能访问非static成员变量或函数，有局限性。</p>
+<h3 id="回调类成员函数"><a href="#回调类成员函数" class="headerlink" title="回调类成员函数"></a>回调类成员函数</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;functional&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用std::function,std::bind</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ClassA</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">func_a</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;func_a is called\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> std::function&lt; <span class="type">void</span> ()&gt; CallbackFunc;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(CallbackFunc callback)</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;func is called\n&quot;</span>;</span><br><span class="line">    <span class="built_in">callback</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ClassA a;</span><br><span class="line">    <span class="built_in">func</span>(std::<span class="built_in">bind</span>(&amp;ClassA::func_a, &amp;a));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="When"><a href="#When" class="headerlink" title="When"></a>When</h2><h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><ol>
+<li>函数作形参语法格式：</li>
+</ol>
+<p><code>函数类型 (*自定义变量名)（形参1，形参2...)</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">func_b</span><span class="params">(<span class="type">void</span> (*callback)())</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;func_b is called\n&quot;</span>;</span><br><span class="line">    <span class="built_in">callback</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><code>std::function</code>, <code>std::bind</code></li>
+</ol>
+<p><code>std::function</code>是一个函数包装器，包装任意类型的可调用实体(函数、函数指针、函数对象、lamda)，可拷贝，可移动。定义格式：<code>std::function&lt;函数类型&gt;</code>,例<code>typedef std::function&lt;void (int,int)&gt; Callback;</code></p>
+<p><code>std::bind</code>是通用的函数适配器，将可调用对象与其参数绑定在一起,返回类型为函数对象『如果一个类将()运算符重载为成员函数，这个类就称为函数对象类』。</p>
+<ul>
+<li><p>绑定普通函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span> <span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;std::cout&lt;&lt;<span class="string">&quot;sum:&quot;</span>&lt;&lt;a+b&lt;&lt;std::endl;&#125;</span><br><span class="line"><span class="keyword">auto</span> func = std::<span class="built_in">bind</span>(add,std::palceholders::_1,<span class="number">2</span>); <span class="comment">//参数占位符</span></span><br><span class="line"><span class="comment">//普通函数做实参时，会隐式转化为函数指针 等价于 std::bind(&amp;add,std::palceholders::_1,2)</span></span><br><span class="line"><span class="built_in">func</span>(<span class="number">3</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>绑定成员函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;functional&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ClassA</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">        std::cout&lt;&lt;<span class="string">&quot;sum: &quot;</span>&lt;&lt;a+b&lt;&lt;std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ClassA a;</span><br><span class="line">    <span class="comment">//编译器不会将对象成员函数隐式转换为函数指针，必须显示指定&amp;Class::add</span></span><br><span class="line">    <span class="comment">//第二个参数为函数指针所属对象的地址，&amp;a</span></span><br><span class="line">    <span class="keyword">auto</span> func = std::<span class="built_in">bind</span>(&amp;ClassA::add, &amp;a, <span class="number">3</span>, std::placeholders::_1);</span><br><span class="line">    <span class="built_in">func</span>(<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>绑定引用参数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//默认情况下bind不是占位符的参数是被拷贝到bind返回的可调用对象中，有时希望以引用的形式传递，或绑定参数的类型不可拷贝。 就需要使用std::ref, std::cref函数</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;functional&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func_a</span><span class="params">(<span class="type">int</span>&amp; i, <span class="type">int</span>&amp; j, <span class="type">const</span> <span class="type">int</span>&amp; k)</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt;<span class="string">&quot;func_a is called, i: &quot;</span>&lt;&lt; i &lt;&lt; <span class="string">&quot; j: &quot;</span>&lt;&lt; j &lt;&lt; <span class="string">&quot; k: &quot;</span>&lt;&lt; k &lt;&lt; std::endl;</span><br><span class="line">    ++i;</span><br><span class="line">    ++j;</span><br><span class="line">    <span class="comment">// ++k;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">1</span>, j = <span class="number">2</span>, k = <span class="number">3</span>;</span><br><span class="line">    std::function&lt;<span class="type">void</span>()&gt; func = std::<span class="built_in">bind</span>(func_a,i,std::<span class="built_in">ref</span>(j),std::<span class="built_in">cref</span>(k));</span><br><span class="line">    i = <span class="number">10</span>;</span><br><span class="line">    j = <span class="number">20</span>;</span><br><span class="line">    k = <span class="number">30</span>;</span><br><span class="line">    std::cout &lt;&lt;<span class="string">&quot;before func, i: &quot;</span>&lt;&lt; i &lt;&lt; <span class="string">&quot; j: &quot;</span>&lt;&lt; j &lt;&lt; <span class="string">&quot; k: &quot;</span>&lt;&lt; k &lt;&lt; std::endl;</span><br><span class="line">    <span class="built_in">func</span>();</span><br><span class="line">    std::cout &lt;&lt;<span class="string">&quot;after func, i: &quot;</span>&lt;&lt; i &lt;&lt; <span class="string">&quot; j: &quot;</span>&lt;&lt; j &lt;&lt; <span class="string">&quot; k: &quot;</span>&lt;&lt; k &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>与<code>std::bind</code>类似，<code>std::thread</code>也必须显式通过<code>std::ref</code>来引用传参，否则形参的引用声明是无效的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;thread&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">t_func</span><span class="params">(std::string str,<span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">    str = <span class="string">&quot; value t_func&quot;</span>;</span><br><span class="line">    i = <span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">t_func</span><span class="params">(std::string&amp;&amp; str,<span class="type">int</span>&amp;&amp; i)</span> </span>&#123;</span><br><span class="line">    str = <span class="string">&quot;rvalue t_func&quot;</span>;</span><br><span class="line">    i = <span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">t_func</span><span class="params">(std::string&amp; str,<span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">    str = <span class="string">&quot;ref t_func&quot;</span>; <span class="comment">//传引用</span></span><br><span class="line">    i = <span class="number">10</span>; <span class="comment">//传值 不会影响到外部</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::string str = <span class="string">&quot;main&quot;</span>;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">1</span>;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;before thread:&quot;</span> &lt;&lt; str &lt;&lt; <span class="string">&quot; i:&quot;</span> &lt;&lt; i &lt;&lt; std::endl;</span><br><span class="line">    <span class="function">std::thread <span class="title">thd_1</span><span class="params">((<span class="type">void</span>(*)(std::string,<span class="type">int</span>))t_func,str,i)</span></span>;  <span class="comment">//copy</span></span><br><span class="line">    thd_1.<span class="built_in">join</span>();</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;after copy:&quot;</span> &lt;&lt; str &lt;&lt; <span class="string">&quot; i:&quot;</span> &lt;&lt; i &lt;&lt; std::endl;</span><br><span class="line">    <span class="function">std::thread <span class="title">thd_2</span><span class="params">((<span class="type">void</span>(*)(std::string&amp;&amp;,<span class="type">int</span>&amp;&amp;))t_func, str, i)</span></span>; <span class="comment">//也是copy</span></span><br><span class="line">    thd_2.<span class="built_in">join</span>();</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;after move:&quot;</span> &lt;&lt; str &lt;&lt; <span class="string">&quot; i:&quot;</span> &lt;&lt; i &lt;&lt; std::endl;</span><br><span class="line">    <span class="function">std::thread <span class="title">thd_3</span><span class="params">((<span class="type">void</span>(*)(std::string&amp;,<span class="type">int</span>))t_func,std::ref(str),i)</span></span>;<span class="comment">//ref</span></span><br><span class="line">    thd_3.<span class="built_in">join</span>();</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;after ref:&quot;</span> &lt;&lt; str &lt;&lt; <span class="string">&quot; i:&quot;</span> &lt;&lt; i &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//1.多线程构造函数的第一参数为重载函数时，如何确认哪个是我们想调用的？</span></span><br><span class="line"><span class="comment">//ans:指明函数类型即可</span></span><br><span class="line"><span class="comment">//2.函数形参是右值，传进去后可以被赋值等放在&quot;=&quot;的左边？</span></span><br><span class="line"><span class="comment">//ans: 可以把 move 和 copy都理解为传值，一类是值不再使用，一类是还会用。</span></span><br><span class="line"><span class="comment">//the argument str, will be copy ,then forwarded as an rvalue</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>std::thread thd(t_func, str, i);</code>,the argument str, will be <strong>copy</strong> ,then forwarded as an rvalue. if the fucntion expects an lvalue reference then it can’t be called with an rvalue.<br>The arguments to the thread function are moved or copied by value. If a reference argument needs to be passed to the thread function, it has to be wrapped (e.g., with std::ref or std::cref).</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="comment">//定义函数指针</span></span><br><span class="line"><span class="built_in">void</span> (*func_ptr)(<span class="type">int</span>,<span class="type">int</span>);</span><br><span class="line"><span class="comment">//使用typedef 让func可以表示一类函数</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*func)</span><span class="params">(<span class="type">int</span>,<span class="type">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">runfunc</span><span class="params">(func p,<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="built_in">p</span>(a,b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; a+b &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">runfunc</span>(add,<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考文献：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f191e88dcc80">https://www.jianshu.com/p/f191e88dcc80</a><br><a target="_blank" rel="noopener" href="https://murphypei.github.io/blog/2019/04/cpp-std-ref">https://murphypei.github.io/blog/2019/04/cpp-std-ref</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/335994370">https://zhuanlan.zhihu.com/p/335994370</a> 『move语义 todo』</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/01/06/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">回调函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What"><span class="nav-number">1.1.</span> <span class="nav-text">What</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why"><span class="nav-number">1.2.</span> <span class="nav-text">Why</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How"><span class="nav-number">1.3.</span> <span class="nav-text">How</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E8%B0%83%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.1.</span> <span class="nav-text">回调普通函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E8%B0%83%E7%B1%BB%E9%9D%99%E6%80%81%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.2.</span> <span class="nav-text">回调类静态函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E8%B0%83%E7%B1%BB%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.3.</span> <span class="nav-text">回调类成员函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#When"><span class="nav-number">1.4.</span> <span class="nav-text">When</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.5.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number">1.6.</span> <span class="nav-text">Tips</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gongweichao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
